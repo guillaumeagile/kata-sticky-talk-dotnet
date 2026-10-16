@@ -1,0 +1,119 @@
+# ---------------------------------------------------------------------------
+# .NET build output and generated files
+# ---------------------------------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+*.binlog
+*.tlog
+*.log
+*.user
+*.suo
+*.userprefs
+*.sln.docstates
+*.ncrunchsolution
+*.ncrunchproject
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet (packages are restored from the project files, never committed)
+/packages/
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nupkg
+*.snupkg
+.nuget/
+
+# Test results and coverage
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+coverage/
+lcov.info
+.mfractor/
+
+# dotnet publish / package outputs
+publish/
+PublishProfiles/
+*.[Cc]ache
+*.pubxml.user
+
+# ---------------------------------------------------------------------------
+# IDEs and editors
+# ---------------------------------------------------------------------------
+# JetBrains Rider / IntelliJ
+.idea/
+*.iml
+riderModule.iml
+/_ReSharper*/
+*.sln.iml
+*.DotSettings.user
+.fleet/
+
+# Visual Studio
+.vs/
+*.rsuser
+*.userosscache
+*.sln.docstates
+*.vssscc
+*.vspscc
+*.cachefile
+*.ntvs*
+*.pidb
+*.svclog
+*.scc
+_Chutzpah*
+ipch/
+Generated\ Files/
+MigrationBackup/
+.ionide/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# ---------------------------------------------------------------------------
+# Claude Code and code-review tooling
+# ---------------------------------------------------------------------------
+.claude/settings.local.json
+.code-review-graph/
+graphify-out/
+
+# ---------------------------------------------------------------------------
+# OS files
+# ---------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# ---------------------------------------------------------------------------
+# Secrets and local environment
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.key
+secrets.json
+appsettings.*.local.json
+appsettings.Local.json

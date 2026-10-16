@@ -1,0 +1,19 @@
+{
+  "name": "CUPID workshop (.NET 10 / C# 14)",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
+  "features": {
+    "ghcr.io/devcontainers/features/powershell:1": {}
+  },
+  "postCreateCommand": "dotnet --info && dotnet restore kata-sticky-talk-dotnet.slnx && dotnet test kata-sticky-talk-dotnet.slnx",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.csharp"
+      ],
+      "settings": {
+        "dotnet.defaultSolution": "kata-sticky-talk-dotnet.slnx"
+      }
+    }
+  }
+}
