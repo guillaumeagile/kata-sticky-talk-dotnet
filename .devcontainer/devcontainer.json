@@ -1,5 +1,5 @@
 {
-  "name": "CUPID workshop (.NET 10 / C# 14)",
+  "name": "Talking Stick KATA (.NET 10 / C# 14)",
   "image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
   "features": {
     "ghcr.io/devcontainers/features/powershell:1": {}
