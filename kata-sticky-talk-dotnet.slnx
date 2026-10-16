@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Kata.Test/Kata.Test.csproj" />
+  <Project Path="TalkingStick/TalkingStick.csproj" />
 </Solution>

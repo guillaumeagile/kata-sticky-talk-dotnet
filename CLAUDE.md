@@ -20,6 +20,10 @@ dotnet test kata-sticky-talk-dotnet.slnx
 
 ## How we work: TDD by the book
 
+For every behavior, follow the skill in [`skills/tdd-by-the-book.md`](skills/tdd-by-the-book.md).
+It defines the loop (name the rule, red, green, refactor, verify with mutation testing,
+commit) and the Readable Failures rule. The summary below is the short form.
+
 Follow Kent Beck's cycle strictly:
 
 1. **Red.** Write one failing test for the next behavior. Run it and check that it fails
@@ -62,6 +66,7 @@ Rules that go with the cycle:
 
 - Make small, reviewable changes that match the current red-green step.
 - Don't add dependencies, packages, or features that no test asks for.
-- Don't commit or push unless asked.
+- Commit each behavior on its own once its cycle is green with zero surviving mutants, as the
+  skill says. Never push.
 - Before reporting a step done, run `dotnet test kata-sticky-talk-dotnet.slnx` and report
   the actual result, including failures.
