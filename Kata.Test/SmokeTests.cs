@@ -30,7 +30,7 @@ public class SmokeTests
     }
 
     [Fact]
-    public void tick_is_being_taken_by_someone()
+    public void stick_posessor_can_talk()
     {
         //ARRANGE
         var stick = new Stick();
