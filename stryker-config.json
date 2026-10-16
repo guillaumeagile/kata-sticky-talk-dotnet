@@ -1,0 +1,21 @@
+{
+  "stryker-config": {
+    "project": "TalkingStick/TalkingStick.csproj",
+    "test-projects": [
+      "Kata.Test/Kata.Test.csproj"
+    ],
+    "reporters": [
+      "progress",
+      "html",
+      "cleartext"
+    ],
+    "thresholds": {
+      "high": 100,
+      "low": 100,
+      "break": 100
+    },
+    "mutation-level": "Standard",
+    "concurrency": 4,
+    "verbosity": "info"
+  }
+}

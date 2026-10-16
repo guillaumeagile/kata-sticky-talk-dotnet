@@ -82,3 +82,29 @@ Tests live in `Kata.Test/`. Delete `Kata.Test/SmokeTests.cs` once real tests exi
 ## DevPod Setup
 
 This project runs in a dev container (image `mcr.microsoft.com/devcontainers/dotnet:10.0`, with the C# Dev Kit and C# extensions). The configuration is in `.devcontainer/devcontainer.json`. Its post-create step restores and tests the solution.
+
+## Mutation Testing
+
+Mutation testing checks that the tests actually pin down the code. The tool changes the production code in small ways (a `>` becomes `>=`, a `true` becomes `false`, a line is removed). A mutant that no test catches is a *surviving mutant*: some behavior is untested.
+
+The tool is [Stryker.NET](https://stryker-mutator.io/docs/stryker-net/introduction/), installed as a local tool in `dotnet-tools.json`. Its settings are in `stryker-config.json`: it mutates `TalkingStick/` and runs the tests in `Kata.Test/`. The score must be 100%.
+
+First time only, restore the local tools:
+
+```sh
+dotnet tool restore
+```
+
+Then, from the repo root:
+
+```sh
+# All production code
+dotnet stryker
+
+# Only one file, which is what the TDD loop uses
+dotnet stryker --mutate "**/StickHolder.cs"
+```
+
+Results are written to `StrykerOutput/`. Open the newest `reports/mutation-report.html` in a browser to see each surviving mutant and its line. The console prints the same summary.
+
+A surviving mutant is not fixed by editing the code blindly. Report it, then decide with the facilitator whether to add a test, remove untested code, or change the spec.

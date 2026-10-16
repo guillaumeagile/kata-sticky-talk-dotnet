@@ -117,3 +117,8 @@ $RECYCLE.BIN/
 secrets.json
 appsettings.*.local.json
 appsettings.Local.json
+
+# ---------------------------------------------------------------------------
+# Mutation testing (Stryker.NET) output
+# ---------------------------------------------------------------------------
+StrykerOutput/
