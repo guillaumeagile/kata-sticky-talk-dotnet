@@ -7,13 +7,34 @@ namespace Kata.Test;
 public class SmokeTests
 {
     [Fact]
-    public void Fluent_assertions_and_xunit_work_together()
+    public void new_stick_is_not_being_held()
     {
-        var greeting = string.Concat("Sticky", " ", "Talk");
+        //ARRANGE
+        var stick = new Stick();
+        //ASSERT
+        stick.IsBeingHeld.Should().BeFalse();
+    }
 
-        greeting.Should()
-            .NotBeNullOrWhiteSpace()
-            .And.StartWith("Sticky")
-            .And.HaveLength(11);
+    [Fact]
+    public void tick_is_not_being_held()
+    {
+        //ARRANGE
+        var stick = new Stick();
+        //ACT
+        var takenStick =  stick.Take();
+
+        //ASSERT
+        stick.IsBeingHeld.Should().BeFalse();
+        takenStick.IsBeingHeld.Should().BeTrue();
+    }
+}
+
+public record Stick
+{
+    public bool IsBeingHeld { get; init; } = false;
+
+    public Stick Take()
+    {
+       return this with { IsBeingHeld = true };
     }
 }
