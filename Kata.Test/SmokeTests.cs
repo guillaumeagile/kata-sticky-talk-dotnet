@@ -1,4 +1,5 @@
 using AwesomeAssertions;
+using TalkingStick;
 
 namespace Kata.Test;
 
@@ -20,21 +21,25 @@ public class SmokeTests
     {
         //ARRANGE
         var stick = new Stick();
+        var alexandra = new  SilentPerson ("Alexandra");
         //ACT
-        var takenStick =  stick.Take();
-
+        var takenStick =  stick.Take(alexandra);
         //ASSERT
         stick.IsBeingHeld.Should().BeFalse();
         takenStick.IsBeingHeld.Should().BeTrue();
     }
-}
 
-public record Stick
-{
-    public bool IsBeingHeld { get; init; } = false;
-
-    public Stick Take()
+    [Fact]
+    public void tick_is_being_taken_by_someone()
     {
-       return this with { IsBeingHeld = true };
+        //ARRANGE
+        var stick = new Stick();
+        var alexandra = new  SilentPerson ("Alexandra");
+        alexandra.CanTalk().Should().BeFalse();
+        //ACT
+        var takenStick =  stick.Take(alexandra);
+
+        //ASSERT
+        takenStick.Possessor.CanTalk().Should().BeTrue();
     }
 }
