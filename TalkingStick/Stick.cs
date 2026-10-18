@@ -16,6 +16,9 @@ public record Stick
         return this with { IsBeingHeld = true, Possessor = new VocalPerson(someone.Name) };
     }
 
+    public bool CanTalk(Participant someone) =>
+        IsBeingHeld && Possessor.Name == someone.Name;
+
 
 
 }

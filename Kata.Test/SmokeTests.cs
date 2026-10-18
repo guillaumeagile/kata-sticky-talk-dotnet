@@ -60,6 +60,19 @@ public class SmokeTests
         stickToHarald.IsBeingHeld.Should().BeTrue();
         stickToHarald.Possessor.Name.Should().Be(harald.Name);
 
-        stickToHarald.CanTalk()
+        stickToHarald.Possessor.CanTalk().Should().BeTrue();
+    }
+
+    [Fact]
+    public void stick_says_a_non_possessor_cannot_talk()
+    {
+        //ARRANGE
+        var stick = new Stick();
+        var alexandra = new VocalPerson("Alexandra");
+        var harald = new SilentPerson("Harald");
+        var takenStick = stick.GivenTo(harald);
+        //ASSERT
+        takenStick.CanTalk(alexandra).Should().BeFalse(
+            because: "Alexandra does not hold the stick, even though she is a VocalPerson");
     }
 }
