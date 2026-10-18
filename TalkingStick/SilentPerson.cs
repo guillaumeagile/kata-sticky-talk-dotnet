@@ -1,12 +1,16 @@
 namespace TalkingStick;
 
-public record SilentPerson(string Name)
+public  record Participant
 {
     public bool CanTalk() => false;
+}
+
+public sealed record SilentPerson(string Name) : Participant
+{
 
 }
 
-public record VocalPerson(string Name)
+public sealed record VocalPerson(string Name) : Participant
 {
     public bool CanTalk() => true;
 

@@ -23,7 +23,7 @@ public class SmokeTests
         var stick = new Stick();
         var alexandra = new  SilentPerson ("Alexandra");
         //ACT
-        var takenStick =  stick.IsTakenBy(alexandra);
+        var takenStick =  stick.GivenTo(alexandra);
         //ASSERT
         stick.IsBeingHeld.Should().BeFalse();
         takenStick.IsBeingHeld.Should().BeTrue();
@@ -37,10 +37,11 @@ public class SmokeTests
         var alexandra = new  SilentPerson ("Alexandra");
         alexandra.CanTalk().Should().BeFalse();
         //ACT
-        var takenStick =  stick.IsTakenBy(alexandra);
+        var takenStick =  stick.GivenTo(alexandra);
 
         //ASSERT
         takenStick.Possessor.CanTalk().Should().BeTrue();
+
     }
 
     [Fact]
@@ -51,13 +52,14 @@ public class SmokeTests
         var alexandra = new  SilentPerson ("Alexandra");
         var harald = new SilentPerson("Harald");
         //ACT
-        var takenStick =  stick.IsTakenBy(alexandra);
+        var takenStick =  stick.GivenTo(alexandra);
         var talkingAlexandra = takenStick.Possessor;
 
-        var stickToHarald = takenStick.IsTakenBy(harald);
+        var stickToHarald = takenStick.GivenTo(harald);
 
         stickToHarald.IsBeingHeld.Should().BeTrue();
         stickToHarald.Possessor.Name.Should().Be(harald.Name);
-    }
 
+        stickToHarald.CanTalk()
+    }
 }
